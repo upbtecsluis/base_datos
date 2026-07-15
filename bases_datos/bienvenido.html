@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenida | Fundamentos de Bases de Datos y Generación de Reportes</title>
+<style>
+  :root {
+    --azul-oscuro: #1e3a5f;
+    --azul: #24507d;
+    --azul-claro: #eaf1fb;
+    --acento: #d9534f;
+    --texto: #2b2b2b;
+    --fondo: #f4f7fb;
+    --blanco: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.55;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+    color: var(--blanco);
+    padding: 60px 20px 70px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    margin: 0 0 10px;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    letter-spacing: 0.5px;
+  }
+
+  .hero p.subtitulo {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .hero .badge {
+    display: inline-block;
+    margin-top: 18px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+
+  .contenedor {
+    max-width: 950px;
+    margin: -40px auto 40px;
+    padding: 0 20px;
+  }
+
+  .ficha {
+    background: var(--blanco);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(30, 58, 95, 0.15);
+    padding: 30px 34px;
+    margin-bottom: 24px;
+  }
+
+  .ficha h2 {
+    color: var(--azul-oscuro);
+    border-bottom: 3px solid var(--azul-claro);
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+
+  .bienvenida p {
+    font-size: 1.05rem;
+  }
+
+  .grid-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .info-item {
+    background: var(--azul-claro);
+    border-left: 4px solid var(--azul);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+
+  .info-item strong {
+    display: block;
+    color: var(--azul-oscuro);
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .semana {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 18px;
+    border: 1px solid #e0e6ee;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .semana .num {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    min-width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .semana .contenido {
+    padding: 12px 16px;
+    flex: 1;
+  }
+
+  .semana .contenido h3 {
+    margin: 0 0 6px;
+    color: var(--azul);
+    font-size: 1rem;
+  }
+
+  .semana ul {
+    margin: 4px 0 0;
+    padding-left: 20px;
+  }
+
+  .semana li {
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+  }
+
+  .taller {
+    display: inline-block;
+    margin-top: 6px;
+    background: #fdecea;
+    color: var(--acento);
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+
+  .evaluacion-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  .evaluacion-tabla th, .evaluacion-tabla td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e6ee;
+    font-size: 0.95rem;
+  }
+
+  .evaluacion-tabla th {
+    background: var(--azul-claro);
+    color: var(--azul-oscuro);
+  }
+
+  .evaluacion-tabla td.pct {
+    font-weight: 700;
+    color: var(--acento);
+    text-align: right;
+  }
+
+  .herramientas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .herramientas span {
+    background: var(--azul);
+    color: var(--blanco);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px 20px 40px;
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 560px) {
+    .semana { flex-direction: column; }
+    .semana .num { min-width: unset; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>¡Bienvenido y bienvenida!</h1>
+    <p class="subtitulo">Curso: Fundamentos de Bases de Datos y Generación de Reportes</p>
+    <span class="badge">5 semanas · SQL &amp; NoSQL · Talleres prácticos</span>
+  </section>
+
+  <div class="contenedor">
+
+    <div class="ficha bienvenida">
+      <h2>Un saludo antes de empezar</h2>
+      <p>
+        Es un gusto darte la bienvenida a este curso, donde construirás las bases para entender,
+        diseñar y consultar bases de datos relacionales y no relacionales, además de aprender a
+        generar reportes útiles a partir de la información almacenada. Iremos de la teoría a la
+        práctica en cada sesión, con talleres que te permitirán aplicar lo aprendido paso a paso.
+      </p>
+      <div class="grid-info">
+        <div class="info-item">
+          <strong>Duración</strong>
+          5 semanas
+        </div>
+        <div class="info-item">
+          <strong>Metodología</strong>
+          Teórico-práctica con talleres semanales
+        </div>
+        <div class="info-item">
+          <strong>Tecnologías</strong>
+          MySQL Workbench, MongoDB, ORMs
+        </div>
+        <div class="info-item">
+          <strong>Evaluación</strong>
+          6 talleres + taller final
+        </div>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <h2>Temario del curso</h2>
+
+      <div class="semana">
+        <div class="num">Semana 1</div>
+        <div class="contenido">
+          <h3>Introducción a las bases de datos</h3>
+          <ul>
+            <li>Presentación del docente y del módulo</li>
+            <li>Modelo de datos basado en archivos: definición, ventajas y desventajas</li>
+            <li>Concepto general de bases de datos: tablas, filas, columnas, SGBD, SQL y NoSQL</li>
+            <li>Proceso de desarrollo: análisis de requerimientos, modelo conceptual (MER), Lucidchart</li>
+            <li>Diseño lógico - Parte 1: MySQL, Workbench, tipos de datos, modelo relacional y físico</li>
+          </ul>
+          <span class="taller">Taller 1 · 10%</span>
+        </div>
+      </div>
+
+      <div class="semana">
+        <div class="num">Semana 2</div>
+        <div class="contenido">
+          <h3>SQL: DDL y DML (Parte 1)</h3>
+          <ul>
+            <li>Comandos DDL: Create, Alter, Drop, Truncate, Rename</li>
+            <li>Comandos DML: Insert, Update, Delete</li>
+          </ul>
+          <span class="taller">Taller 2 · 10%</span>
+          <span class="taller">Taller 3 · 10%</span>
+        </div>
+      </div>
+
+      <div class="semana">
+        <div class="num">Semana 3</div>
+        <div class="contenido">
+          <h3>Consultas, relaciones y Joins</h3>
+          <ul>
+            <li>DML Parte 2: Select, As, Where (operadores y filtros LIKE/BETWEEN/IN), ordenamiento, agrupaciones</li>
+            <li>Diseño lógico - Parte 2: relaciones 1:1, 1:N, N:M; claves foráneas; PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL</li>
+            <li>SQL Joins: INNER, LEFT, RIGHT, FULL JOIN</li>
+          </ul>
+          <span class="taller">Taller 4 · 10%</span>
+        </div>
+      </div>
+
+      <div class="semana">
+        <div class="num">Semana 4</div>
+        <div class="contenido">
+          <h3>Índices, normalización y NoSQL</h3>
+          <ul>
+            <li>Diseño lógico - Parte 3: índices y normalización (1NF, 2NF, 3NF)</li>
+            <li>NoSQL: colecciones, documentos, diagramas NoSQL</li>
+            <li>MongoDB: tipos de datos, ObjectId, Atlas, Compass</li>
+            <li>Consultas: Find, operadores (eq, gt, lt, and, or, in, regex), Aggregate, Lookup, unwind</li>
+          </ul>
+          <span class="taller">Taller 5 · 20%</span>
+          <span class="taller">Taller 6 · 10%</span>
+        </div>
+      </div>
+
+      <div class="semana">
+        <div class="num">Semana 5</div>
+        <div class="contenido">
+          <h3>ORM / ODM y cierre del curso</h3>
+          <ul>
+            <li>Concepto y ventajas de ORM/ODM</li>
+            <li>Mongoose y SqlAlchemy</li>
+            <li>Práctica guiada y ejercicios/retos</li>
+            <li>Práctica en clase</li>
+          </ul>
+          <span class="taller">Taller final · 20%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <h2>Distribución de la evaluación</h2>
+      <table class="evaluacion-tabla">
+        <thead>
+          <tr><th>Actividad</th><th>Peso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Taller 1</td><td class="pct">10%</td></tr>
+          <tr><td>Taller 2</td><td class="pct">10%</td></tr>
+          <tr><td>Taller 3</td><td class="pct">10%</td></tr>
+          <tr><td>Taller 4</td><td class="pct">10%</td></tr>
+          <tr><td>Taller 5</td><td class="pct">20%</td></tr>
+          <tr><td>Taller 6</td><td class="pct">10%</td></tr>
+          <tr><td>Taller final</td><td class="pct">20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ficha">
+      <h2>Herramientas que usaremos</h2>
+      <div class="herramientas">
+        <span>MySQL Workbench</span>
+        <span>Lucidchart</span>
+        <span>MongoDB Atlas</span>
+        <span>MongoDB Compass</span>
+        <span>Mongoose</span>
+        <span>SQLAlchemy</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    ¡Éxitos en este recorrido por el mundo de las bases de datos!
+  </footer>
+
+</body>
+</html>
